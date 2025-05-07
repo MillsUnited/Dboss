@@ -2,3 +2,5 @@ name: Dboss
 version: '1.0'
 main: com.mills.dboss.Main
 api-version: '1.21'
+commands:
+  dbossadmin:

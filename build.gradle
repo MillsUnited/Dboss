@@ -1,6 +1,9 @@
+import com.undefinedcreations.nova.RamAmount
+import com.undefinedcreations.nova.ServerType
+
 plugins {
     id 'java'
-    id("xyz.jpenilla.run-paper") version "2.3.1"
+    id("com.undefinedcreations.nova") version "0.0.4"
 }
 
 group = 'com.mills'
@@ -12,10 +15,6 @@ repositories {
         name = "papermc-repo"
         url = "https://repo.papermc.io/repository/maven-public/"
     }
-    maven {
-        name = "sonatype"
-        url = "https://oss.sonatype.org/content/groups/public/"
-    }
 }
 
 dependencies {
@@ -24,10 +23,11 @@ dependencies {
 
 tasks {
     runServer {
-        // Configure the Minecraft version for our task.
-        // This is the only required configuration besides applying the plugin.
-        // Your plugin's jar (or shadowJar if present) will be used automatically.
-        minecraftVersion("1.21")
+        minecraftVersion("1.21.5")
+        serverType(ServerType.PAPERMC)
+        acceptMojangEula()
+        allowedRam(4, RamAmount.GIGABYTE)
+        noGui(true)
     }
 }
 
